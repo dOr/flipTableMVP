@@ -5,6 +5,7 @@
     </canvas>
     <script>
       var last10GammaReadings = [];
+      var last10Averages = [];
       var c = document.getElementById("myCanvas");
       function deviceOrientationListener(e) {
         var ctx = c.getContext("2d");
@@ -42,6 +43,17 @@
         ctx.clearRect(10,480,750,100);
         ctx.fillText("averageOfLast10: " + lastAverage.toString(), 10, 500);
         // ctx.clearRect(10,480,750,100);
+        // 
+        last10Averages.push(lastAverage);
+        if(last10Averages.length >10){
+          last10Averages.shift();
+        }
+
+
+        ctx.clearRect(10,565,750,100);
+        ctx.fillText("last10Averages: " + last10Averages.toString(), 10, 575);
+        // ctx.clearRect(10,565,750,100);
+
 
       }
  
