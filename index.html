@@ -31,7 +31,7 @@
 
         last10GammaReadings.push(Math.floor(e.gamma));
         if(last10GammaReadings.length >10){
-          last10GammaReadings.slice(-10);
+          last10GammaReadings.shift();
         }
         ctx.clearRect(10,410,200,200);
         ctx.fillText("last10GammaReadings: " + last10GammaReadings.toString(), 10, 420);
