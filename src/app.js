@@ -13,13 +13,10 @@ var dor = {
 }
 
 setTimeout(function() {
-    pDor = {
-        alpha: dor.alpha,
-        gamma: dor.gamma,
-        beta: dor.beta
-    }
+    var diff = dor.gamma - pDor.gamma;
+    var diffEl = document.getElementById('diff');
 
-
+    diffEl.innerText = Math.floor(diff);
 }, 50)
 
 
@@ -29,21 +26,18 @@ if (window.DeviceOrientationEvent) {
         // alpha: rotation around z-axis
         // gamma: left to right
         // beta: front back motion
+         
+        pDor = {
+            alpha: dor.alpha,
+            gamma: dor.gamma,
+            beta: dor.beta
+        }
 
         dor = {
             alpha: event.alpha,
             gamma: event.gamma,
             beta: event.beta
         };
-
-        var diff = dor.gamma - pDor.gamme;
-        var diffEl = document.getElementById('diff');
-
-        diffEl.innerText = Math.floor(diff);
-
-        if(diff > 1) {
-            isStale = false;
-        }
 
         broadcastMovement(dor);
     }, true);
