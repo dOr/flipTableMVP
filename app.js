@@ -45,6 +45,7 @@ if (window.DeviceOrientationEvent) {
         updateDiff(diff);
 
         if(Math.abs(diff) > 2) {
+            debugger;
             isFlipping = true;
             if(hack !== 0 && Math.abs(dor.gamma - 0) < 10) {
                 addFlipTable();
@@ -60,6 +61,7 @@ if (window.DeviceOrientationEvent) {
 }
 
 function addFlipTable() {
+  debugger;
   var flipEl = document.getElementById('flip');
   el.innerText = '(╯°□°)╯︵ ┻━┻';
   setTimeout(function(){
