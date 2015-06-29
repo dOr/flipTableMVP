@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
  <head>
-     <title>Flip Table MVP v 0.0.01</title>
+     <title>Flip Table MVP v 0.0.02</title>
      <style>
          table {
              border-collapse: collapse;
@@ -31,9 +31,11 @@
         </tr>
         <tr>
             <td>DIFF</td>
+            <td>STAGE</td>
         </tr>
         <tr>
             <td id='diff'></td>
+            <td id='flipStage'>None</td>
         </tr>
         <tr>
             <td id='flip'></td>
@@ -43,8 +45,8 @@
 
     <canvas id="myCanvas" width="750" height="750" style="border:1px solid #d3d3d3;">
     </canvas>
-    <script type="text/javascript" src="./node_modules/underscore/underscore-min.js"></script>
-    <script type="text/javascript" src="./node_modules/immutable/dist/immutable.min.js"></script>
+    <!--  <script type="text/javascript" src="./node_modules/underscore/underscore-min.js"></script> -->
+    <!-- // <script type="text/javascript" src="./node_modules/immutable/dist/immutable.min.js"></script> -->
 
     <!-- // <script type="text/javascript" src="./node_modules/jQuery/lib/node-jquery.js"></script> -->
     <script type="text/javascript" src="./app.js"></script>

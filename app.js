@@ -1,5 +1,3 @@
-var isFlipping = false;
-
 var pDor = {
     alpha: null,
     gamma: null,
@@ -45,17 +43,17 @@ if (window.DeviceOrientationEvent) {
         updateDiff(diff);
 
         if(Math.abs(diff) > 2) {
-            debugger;
-            isFlipping = true;
-            if(hack !== 0 && Math.abs(dor.gamma - 0) < 10) {
-                addFlipTable();
-            }
-            hack = 1;
+          updateStage("Flipping");
+            // if(hack !== 0 && Math.abs(dor.gamma - 0) < 10) {
+            //     addFlipTable();
+            // }
         } else {
-            isFlipping = false;
+          updateStage("Not flipping");
         }
 
-
+        if (getStageName() === "4"){
+          addFlipTable();
+        }
         broadcastMovement(dor);
     }, true);
 }
@@ -72,6 +70,15 @@ function addFlipTable() {
 function updateDiff(diff) {
   var diffEl = document.getElementById('diff');
   diffEl.innerText = Math.floor(diff);
+}
+
+function updateStage(stageName){
+    var flipStage = document.getElementById('flipStage');
+    flipStage.innerText = stageName;
+}
+
+function getStageName(){
+    return document.getElementById('flipStage').innerText;
 }
 
 
