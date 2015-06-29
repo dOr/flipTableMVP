@@ -16,8 +16,6 @@ socket.on('broadcast', function(d) {
     beta.innerText = d.beta;
 });
 
-var dBroadcastMovement = _.throttle(broadcastMovement, 100);
-
 if (window.DeviceOrientationEvent) {
     window.addEventListener("deviceorientation", function(event) {
 
@@ -28,7 +26,7 @@ if (window.DeviceOrientationEvent) {
                // beta: front back motion
                var frontToBack = event.beta;
 
-        dBroadcastMovement({
+        broadcastMovement({
             alpha: event.alpha,
             gamma: event.gamma,
             beta: event.beta
