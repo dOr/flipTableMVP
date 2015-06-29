@@ -43,16 +43,16 @@ if (window.DeviceOrientationEvent) {
         var diffEl = document.getElementById('diff');
 
         diffEl.innerText = Math.floor(diff);
-        if(Math.abs(diff) > 5) {
+        if(Math.abs(diff) > 2) {
             isFlipping = true;
+            if(Math.abs(dor.gamma - 0) < 1) {
+                var flipEl = document.getElementById('diff');
+                flipEl.innerText = '(╯°□°)╯︵ ┻━┻' ;
+            }
         } else {
             isFlipping = false;
         }
 
-        if(isFlipping && Math.abs(dor.gamma - 0) < 1) {
-            var flipEl = document.getElementById('diff');
-            flipEl.innerText = '(╯°□°)╯︵ ┻━┻' ;
-        }
 
         broadcastMovement(dor);
     }, true);
