@@ -1,3 +1,8 @@
+
+
+
+
+
 if (window.DeviceOrientationEvent) {
     window.addEventListener("deviceorientation", function(event) {
 
@@ -22,7 +27,8 @@ function broadcastMovement(d) {
         var gamma = document.getElementById('gamma');
         var beta = document.getElementById('beta');
 
-        alpha.innerText = Math.floor(d.alpha*100)/100;
-        gamma.innerText = Math.floor(d.gamma*100)/100;
-        beta.innerText = Math.floor(d.beta*100)/100;
+        alpha.innerText = Math.floor(d.alpha);
+        gamma.innerText = Math.floor(d.gamma);
+        beta.innerText = Math.floor(d.beta);
 };
+
