@@ -4,13 +4,13 @@ var pDor = {
     alpha: null,
     gamma: null,
     beta: null
-}
+};
 
 var dor = {
     alpha: null,
     gamma: null,
     beta: null
-}
+};
 
 var hack = 0;
 
@@ -28,12 +28,6 @@ if (window.DeviceOrientationEvent) {
         // alpha: rotation around z-axis
         // gamma: left to right
         // beta: front back motion
-         
-        pDor = {
-            alpha: dor.alpha,
-            gamma: dor.gamma,
-            beta: dor.beta
-        }
 
         dor = {
             alpha: event.alpha,
