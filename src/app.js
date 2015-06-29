@@ -13,10 +13,11 @@ var dor = {
 }
 
 setTimeout(function() {
-    var diff = dor.gamma - pDor.gamma;
-    var diffEl = document.getElementById('diff');
-
-    diffEl.innerText = Math.floor(diff);
+    pDor = {
+        alpha: dor.alpha,
+        gamma: dor.gamma,
+        beta: dor.beta
+    }
 }, 50)
 
 
@@ -38,6 +39,11 @@ if (window.DeviceOrientationEvent) {
             gamma: event.gamma,
             beta: event.beta
         };
+
+        var diff = dor.gamma - pDor.gamma;
+        var diffEl = document.getElementById('diff');
+
+        diffEl.innerText = Math.floor(diff);
 
         broadcastMovement(dor);
     }, true);
