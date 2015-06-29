@@ -10,15 +10,13 @@ var dor = {
     beta: null
 };
 
-var hack = 0;
-
 setTimeout(function() {
     pDor = {
         alpha: dor.alpha,
         gamma: dor.gamma,
         beta: dor.beta
     }
-}, 50)
+}, 50);
 
 // var flipStage = {
 //   0:,
@@ -44,11 +42,7 @@ if (window.DeviceOrientationEvent) {
 
         if(Math.abs(diff) > 2) {
           var absGamma = Math.abs(dor.gama);
-          if (absGamma > 0 && absGamma < )
-          updateStage("0");
-            // if(hack !== 0 && Math.abs(dor.gamma - 0) < 10) {
-            //     addFlipTable();
-            // }
+          processStage(getStageName(), absGamma);
         } else {
           updateStage("None");
         }
@@ -63,24 +57,28 @@ function processStage(currentStage, currentGamma) {
   if (currentStage === 'None'){
     if (currentGamma > 0 && currentGamma < 25) {
       updateStage('0');
+    } 
   } else if (currentStage === '0') {
-    if (currentGamma > 25 && currentGamma < 75) {
-      updateStage('1');
+      if (currentGamma > 25 && currentGamma < 75) {
+        updateStage('1');
+      } 
   } else if (currentStage === '1') {
-    if (currentGamma > 75 && currentGamma < 91) {
-      updateStage('2');
-    } else if (currentGamma < 25) {
+      if (currentGamma > 75 && currentGamma < 91) {
+        updateStage('2');
+      } else if (currentGamma < 25) {
       updateStage('None');
-    }
+      }
   } else if (currentStage === '2') {
-    if (currentGamma > 75 && currentGamma < 91) {
+    if (currentGamma > 25 && currentGamma < 75) {
       updateStage('3');
+    } else if (currentGamma > 75 && currentGamma < 91){
+      updateSttage('None'); //exit
+    }
   } else if (currentStage === '3') {
     if (currentGamma > 0 && currentGamma < 25) {
       updateStage('4');
     }
   }
-
 }
 
 
