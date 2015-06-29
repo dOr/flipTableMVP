@@ -23,5 +23,11 @@ if (window.DeviceOrientationEvent) {
 }
 
 socket.on('broadcast', function(d) {
-    console.log(d);
+    var alpha = document.getElementById('alpha');
+    var gamma = document.getElementById('gamma');
+    var beta = document.getElementById('beta');
+
+    alpha.innerText = d.alpha;
+    gamma.innerText = d.gamma;
+    beta.innerText = d.beta;
 })
