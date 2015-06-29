@@ -2,6 +2,15 @@
 <html>
     <head>
         <title>Flip Table MVP</title>
+        <style>
+            table {
+                border-collapse: collapse;
+            }
+            td {
+                width: 100px;
+                border: 1px solid black;
+            }
+        </style>
     </head>
     <body>
         <table>
@@ -11,6 +20,11 @@
                 <td>Beta</td>
             </tr>
             <tr>
+                <td>Rotate Degrees</td>
+                <td>Left To Right</td>
+                <td>Front To Back</td>
+            </tr>
+            <tr>
                 <td id="alpha"></td>
                 <td id="gamma"></td>
                 <td id="beta"></td>
@@ -18,5 +32,6 @@
         </table>
     </body>
     <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="../lib/underscore.js"></script>
     <script type="text/javascript" src="../src/app.js"></script>
 <html>

@@ -6,21 +6,15 @@ socket.on('connect', function(d) {
 
 if (window.DeviceOrientationEvent) {
     window.addEventListener("deviceorientation", function(event) {
-
-        // alpha: rotation around z-axis
-        var rotateDegrees = event.alpha;
-        // gamma: left to right
-        var leftToRight = event.gamma;
-        // beta: front back motion
-        var frontToBack = event.beta;
-
-        socket.emit('dOr', {
-            alpha: rotateDegrees,
-            gamma: leftToRight,
-            beta: frontToBack
-        })
+        dBroadcastMovement(event);
     }, true);
 }
+
+var dBroadcastMovement = _.debounce(broadcastMovement, 100);
+
+function broadcastMovement(d) {
+    socket.emit('dOr', d);
+};
 
 socket.on('broadcast', function(d) {
     var alpha = document.getElementById('alpha');
