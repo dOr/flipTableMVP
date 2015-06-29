@@ -1,21 +1,3 @@
-var socket = io();
-
-socket.on('connect', function(d) {
-    console.log('Connected to server...');
-});
-
-socket.on('broadcast', function(d) {
-    var alpha = document.getElementById('alpha');
-    var gamma = document.getElementById('gamma');
-    var beta = document.getElementById('beta');
-
-    console.log(d);
-
-    alpha.innerText = d.alpha;
-    gamma.innerText = d.gamma;
-    beta.innerText = d.beta;
-});
-
 if (window.DeviceOrientationEvent) {
     window.addEventListener("deviceorientation", function(event) {
 
@@ -36,5 +18,11 @@ if (window.DeviceOrientationEvent) {
 
 
 function broadcastMovement(d) {
-    socket.emit('dOr', d);
+        var alpha = document.getElementById('alpha');
+        var gamma = document.getElementById('gamma');
+        var beta = document.getElementById('beta');
+
+        alpha.innerText = Math.floor(d.alpha*100)/100;
+        gamma.innerText = Math.floor(d.gamma*100)/100;
+        beta.innerText = Math.floor(d.beta*100)/100;
 };
