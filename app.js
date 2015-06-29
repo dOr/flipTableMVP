@@ -22,28 +22,32 @@ setTimeout(function() {
     }
 }, 50)
 
+// var flipStage = {
+//   0:,
+//   1:,
+//   2:,
+//   3:
+
+// }
+
 if (window.DeviceOrientationEvent) {
     window.addEventListener("deviceorientation", function(event) {
 
         // alpha: rotation around z-axis
         // gamma: left to right
         // beta: front back motion
-
         dor = {
             alpha: event.alpha,
             gamma: event.gamma,
             beta: event.beta
         };
-
         var diff = dor.gamma - pDor.gamma;
-        var diffEl = document.getElementById('diff');
-        var flipEl = document.getElementById('flip');
+        updateDiff(diff);
 
-        diffEl.innerText = Math.floor(diff);
         if(Math.abs(diff) > 2) {
             isFlipping = true;
             if(hack !== 0 && Math.abs(dor.gamma - 0) < 10) {
-                flipEl.innerText = '(╯°□°)╯︵ ┻━┻' ;
+                addFlipTable();
             }
             hack = 1;
         } else {
@@ -53,6 +57,19 @@ if (window.DeviceOrientationEvent) {
 
         broadcastMovement(dor);
     }, true);
+}
+
+function addFlipTable() {
+  var flipEl = document.getElementById('flip');
+  el.innerText = '(╯°□°)╯︵ ┻━┻';
+  setTimeout(function(){
+    el.innerText = '';
+  }, 2000);
+}
+
+function updateDiff(diff) {
+  var diffEl = document.getElementById('diff');
+  diffEl.innerText = Math.floor(diff);
 }
 
 
