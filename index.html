@@ -33,8 +33,14 @@
         if(last10GammaReadings.length >10){
           last10GammaReadings.shift();
         }
-        ctx.clearRect(10,410,200,200);
+        ctx.clearRect(10,390,100,100);
         ctx.fillText("last10GammaReadings: " + last10GammaReadings.toString(), 10, 420);
+        // ctx.clearRect(10,390,750,100);
+
+        var average = last10GammaReadings.reduce(function(sum, nextVal){return sum+nextVal},0)/last10GammaReadings.length;
+        ctx.clearRect(10,480,750,100);
+        ctx.fillText("averageOfLast10: " + last10GammaReadings.toString(), 10, 500);
+        // ctx.clearRect(10,480,750,100);
 
       }
  
