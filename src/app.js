@@ -1,4 +1,4 @@
-var isStale = true;
+var isFlipping = false;
 
 var pDor = {
     alpha: null,
@@ -19,7 +19,6 @@ setTimeout(function() {
         beta: dor.beta
     }
 }, 50)
-
 
 if (window.DeviceOrientationEvent) {
     window.addEventListener("deviceorientation", function(event) {
@@ -44,6 +43,16 @@ if (window.DeviceOrientationEvent) {
         var diffEl = document.getElementById('diff');
 
         diffEl.innerText = Math.floor(diff);
+        if(Math.abs(diff) > 5) {
+            isFlipping = true;
+        } else {
+            isFlipping = false;
+        }
+
+        if(isFlipping && Math.abs(dor.gamma - 0) < 1) {
+            var flipEl = document.getElementById('diff');
+            flipEl.innerText = '(╯°□°)╯︵ ┻━┻' ;
+        }
 
         broadcastMovement(dor);
     }, true);
