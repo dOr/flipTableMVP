@@ -16,7 +16,7 @@ socket.on('broadcast', function(d) {
     beta.innerText = d.beta;
 });
 
-var dBroadcastMovement = _.debounce(broadcastMovement, 100);
+var dBroadcastMovement = _.throttle(broadcastMovement, 100);
 
 if (window.DeviceOrientationEvent) {
     window.addEventListener("deviceorientation", function(event) {
