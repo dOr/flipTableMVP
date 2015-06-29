@@ -43,12 +43,14 @@ if (window.DeviceOrientationEvent) {
         updateDiff(diff);
 
         if(Math.abs(diff) > 2) {
-          updateStage("Flipping");
+          var absGamma = Math.abs(dor.gama);
+          if (absGamma > 0 && absGamma < )
+          updateStage("0");
             // if(hack !== 0 && Math.abs(dor.gamma - 0) < 10) {
             //     addFlipTable();
             // }
         } else {
-          updateStage("Not flipping");
+          updateStage("None");
         }
 
         if (getStageName() === "4"){
@@ -57,6 +59,30 @@ if (window.DeviceOrientationEvent) {
         broadcastMovement(dor);
     }, true);
 }
+function processStage(currentStage, currentGamma) {
+  if (currentStage === 'None'){
+    if (currentGamma > 0 && currentGamma < 25) {
+      updateStage('0');
+  } else if (currentStage === '0') {
+    if (currentGamma > 25 && currentGamma < 75) {
+      updateStage('1');
+  } else if (currentStage === '1') {
+    if (currentGamma > 75 && currentGamma < 91) {
+      updateStage('2');
+    } else if (currentGamma < 25) {
+      updateStage('None');
+    }
+  } else if (currentStage === '2') {
+    if (currentGamma > 75 && currentGamma < 91) {
+      updateStage('3');
+  } else if (currentStage === '3') {
+    if (currentGamma > 0 && currentGamma < 25) {
+      updateStage('4');
+    }
+  }
+
+}
+
 
 function addFlipTable() {
   debugger;
@@ -65,6 +91,7 @@ function addFlipTable() {
   setTimeout(function(){
     el.innerText = '';
   }, 2000);
+  updateStage('None');
 }
 
 function updateDiff(diff) {
