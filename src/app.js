@@ -45,7 +45,7 @@ if (window.DeviceOrientationEvent) {
         diffEl.innerText = Math.floor(diff);
         if(Math.abs(diff) > 2) {
             isFlipping = true;
-            if(Math.abs(dor.gamma - 0) < 1) {
+            if(Math.abs(dor.gamma - 0) < 10) {
                 var flipEl = document.getElementById('diff');
                 flipEl.innerText = '(╯°□°)╯︵ ┻━┻' ;
             }
