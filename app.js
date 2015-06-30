@@ -42,7 +42,8 @@ if (window.DeviceOrientationEvent) {
         var diff = Math.abs(dor.gamma - pDor.gamma);
         updateDiff(diff);
         
-        var absGamma = Math.abs(dor.gama);
+        var absGamma = Math.abs(dor.gama) || 0;
+        console.log(absGamma);
         if(Math.abs(diff) > .3) {
           processStage(getStageName(), absGamma);
         } else {
