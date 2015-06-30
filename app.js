@@ -17,7 +17,7 @@ setInterval(function() {
         beta: dor.beta
     }
     updatePGamma(pDor.gamma);
-}, 10);
+}, 15);
 
 // var flipStage = {
 //   0:,
