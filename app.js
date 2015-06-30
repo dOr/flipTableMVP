@@ -55,7 +55,16 @@ if (window.DeviceOrientationEvent) {
         broadcastMovement(dor);
     }, true);
 }
+
+function indicateProcessing(){
+  var diffEl = document.getElementById('diff');
+  diffEl.style.background-color = "red";
+  setTimeout(function(){
+    diffEl.style.background-color = "white";
+  },500);
+}
 function processStage(currentStage, currentGamma) {
+  indicateProcessing();
   if (currentStage === 'None'){
     if (currentGamma > 0 && currentGamma < 25) {
       updateStage('0');
