@@ -58,11 +58,12 @@ if (window.DeviceOrientationEvent) {
 
 function indicateProcessing(){
   var diffEl = document.getElementById('diff');
-  diffEl.style.background-color = "red";
+  diffEl.style.backgroundColor = "red";
   setTimeout(function(){
-    diffEl.style.background-color = "white";
+    diffEl.style.backgroundColor = "white";
   },500);
 }
+
 function processStage(currentStage, currentGamma) {
   indicateProcessing();
   if (currentStage === 'None'){
@@ -82,6 +83,7 @@ function processStage(currentStage, currentGamma) {
   } else if (currentStage === '2') {
     if (currentGamma > 25 && currentGamma < 75) {
       updateStage('3');
+    }
   } else if (currentStage === '3') {
     if (currentGamma > 0 && currentGamma < 25) {
       updateStage('4');//unnecessary
