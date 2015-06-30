@@ -17,7 +17,7 @@ setInterval(function() {
         beta: dor.beta
     }
     updatePGamma(pDor.gamma);
-}, 70);
+}, 90);
 
 // var flipStage = {
 //   0:,
@@ -101,7 +101,7 @@ function updatePGamma(val) {
 
 function updateDiff(diff) {
   var diffEl = document.getElementById('diff');
-  diffEl.innerText = Math.floor(diff);
+  diffEl.innerText = diff;
 }
 
 function updateStage(stageName){
