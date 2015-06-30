@@ -40,13 +40,12 @@ if (window.DeviceOrientationEvent) {
         };
         var diff = Math.abs(dor.gamma - pDor.gamma);
         updateDiff(diff);
-
+        
+        var absGamma = Math.abs(dor.gama);
         if(Math.abs(diff) > .3) {
-          var absGamma = Math.abs(dor.gama);
           processStage(getStageName(), absGamma);
         } else {
           processStage(getStageName(), absGamma);
-
           // updateStage("None");
         }
 
