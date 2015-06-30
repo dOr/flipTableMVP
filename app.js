@@ -16,7 +16,8 @@ setTimeout(function() {
         gamma: dor.gamma,
         beta: dor.beta
     }
-}, 50);
+    updatePGamma(pDor.gamma);
+}, 300);
 
 // var flipStage = {
 //   0:,
@@ -92,6 +93,12 @@ function addFlipTable() {
   updateStage('None');
 }
 
+function updatePGamma(val) {
+  var diffEl = document.getElementById('pDor.gamma');
+  diffEl.innerText = Math.floor(val);
+
+}
+
 function updateDiff(diff) {
   var diffEl = document.getElementById('diff');
   diffEl.innerText = Math.floor(diff);
@@ -106,7 +113,6 @@ function getStageName(){
     return document.getElementById('flipStage').innerText;
 }
 
-
 function broadcastMovement(d) {
         var alpha = document.getElementById('alpha');
         var gamma = document.getElementById('gamma');
@@ -117,16 +123,6 @@ function broadcastMovement(d) {
         beta.innerText = Math.floor(d.beta);
         
 };
-
-
-
-
-
-
-
-
-
-
 
 /**
  * 2nd Listener
