@@ -42,7 +42,7 @@ if (window.DeviceOrientationEvent) {
         updateDiff(diff);
         
         var absGamma = Math.abs(dor.gama);
-        if(Math.abs(diff) > .3) {
+        if(Math.abs(diff) > .1) {
           processStage(getStageName(), absGamma);
         } else {
           processStage(getStageName(), absGamma);
@@ -73,9 +73,6 @@ function processStage(currentStage, currentGamma) {
   } else if (currentStage === '2') {
     if (currentGamma > 25 && currentGamma < 75) {
       updateStage('3');
-    } else if (currentGamma > 75 && currentGamma < 91){
-      updateStage('None'); //exit
-    }
   } else if (currentStage === '3') {
     if (currentGamma > 0 && currentGamma < 25) {
       updateStage('4');//unnecessary
