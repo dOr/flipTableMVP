@@ -48,9 +48,9 @@ if (window.DeviceOrientationEvent) {
           updateStage("None");
         }
 
-        if (getStageName() === "4"){
-          addFlipTable();
-        }
+        // if (getStageName() === "4"){
+        //   addFlipTable();
+        // }
         broadcastMovement(dor);
     }, true);
 }
@@ -73,23 +73,23 @@ function processStage(currentStage, currentGamma) {
     if (currentGamma > 25 && currentGamma < 75) {
       updateStage('3');
     } else if (currentGamma > 75 && currentGamma < 91){
-      updateSttage('None'); //exit
+      updateStage('None'); //exit
     }
   } else if (currentStage === '3') {
     if (currentGamma > 0 && currentGamma < 25) {
-      updateStage('4');
+      updateStage('4');//unnecessary
+      addFlipTable(); 
     }
   }
 }
 
 
 function addFlipTable() {
-  debugger;
   var flipEl = document.getElementById('flip');
-  el.innerText = '(╯°□°)╯︵ ┻━┻';
+  flipEl.innerText = '(╯°□°)╯︵ ┻━┻';
   setTimeout(function(){
-    el.innerText = '';
-  }, 2000);
+    flipEl.innerText = '';
+  }, 3000);
   updateStage('None');
 }
 
