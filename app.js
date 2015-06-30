@@ -1,3 +1,4 @@
+console.log(document.getElementById('flipStage').innerText === 'None');
 var pDor = {
     alpha: null,
     gamma: null,
@@ -42,11 +43,12 @@ if (window.DeviceOrientationEvent) {
         updateDiff(diff);
         
         var absGamma = Math.abs(dor.gama);
-        if(Math.abs(diff) > .1) {
+        if(Math.abs(diff) > .3) {
           processStage(getStageName(), absGamma);
         } else {
-          processStage(getStageName(), absGamma);
+          // processStage(getStageName(), absGamma);
           // updateStage("None");
+          indicateProcessing('blue');
         }
 
         // if (getStageName() === "4"){
