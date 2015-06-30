@@ -44,7 +44,7 @@ if (window.DeviceOrientationEvent) {
         updateDiff(diff);
         
         if(Math.abs(diff) > .3) {
-          processStage(getStageName(), Math.abs(dor.gamma));
+          processStage(getStageName(), event.gamma);
         } else {
           // processStage(getStageName(), absGamma);
           // updateStage("None");
@@ -67,8 +67,9 @@ function indicateProcessing(color){
 }
 
 function processStage(currentStage, currentGamma) {
+  console.log('Inputs: ', currentStage, currentGamma);
   indicateProcessing('red');
-  document.getElementById('processedGamma').innerText = currentGamma;
+  document.getElementById('processedGamma').innerText = currentGamma || "NaN Received";
   if (currentStage === 'None'){
     indicateProcessing('green');
     if (currentGamma > 0 && currentGamma < 25) {
