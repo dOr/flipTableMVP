@@ -10,14 +10,14 @@ var dor = {
     beta: null
 };
 
-setTimeout(function() {
+setInterval(function() {
     pDor = {
         alpha: dor.alpha,
         gamma: dor.gamma,
         beta: dor.beta
     }
     updatePGamma(pDor.gamma);
-}, 300);
+}, 500);
 
 // var flipStage = {
 //   0:,
@@ -41,7 +41,7 @@ if (window.DeviceOrientationEvent) {
         var diff = dor.gamma - pDor.gamma;
         updateDiff(diff);
 
-        if(Math.abs(diff) > 2) {
+        if(Math.abs(diff) > 5) {
           var absGamma = Math.abs(dor.gama);
           processStage(getStageName(), dor.gamma);
         } else {
