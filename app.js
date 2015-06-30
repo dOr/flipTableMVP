@@ -45,7 +45,9 @@ if (window.DeviceOrientationEvent) {
           var absGamma = Math.abs(dor.gama);
           processStage(getStageName(), dor.gamma);
         } else {
-          updateStage("None");
+          processStage(getStageName(), dor.gamma);
+          
+          // updateStage("None");
         }
 
         // if (getStageName() === "4"){
