@@ -56,17 +56,19 @@ if (window.DeviceOrientationEvent) {
     }, true);
 }
 
-function indicateProcessing(){
+function indicateProcessing(color){
   var diffEl = document.getElementById('diff');
-  diffEl.style.backgroundColor = "red";
+  diffEl.style.backgroundColor = color;
   setTimeout(function(){
     diffEl.style.backgroundColor = "white";
   },500);
 }
 
 function processStage(currentStage, currentGamma) {
-  indicateProcessing();
+  indicateProcessing('red');
+  document.getElementById('processedGamma').innerText = currentGamma;
   if (currentStage === 'None'){
+    indicateProcessing('green');
     if (currentGamma > 0 && currentGamma < 25) {
       updateStage('0');
     } 
