@@ -41,7 +41,7 @@ if (window.DeviceOrientationEvent) {
         var diff = dor.gamma - pDor.gamma;
         updateDiff(diff);
 
-        if(Math.abs(diff) > 5) {
+        if(Math.abs(diff) > .75) {
           var absGamma = Math.abs(dor.gama);
           processStage(getStageName(), dor.gamma);
         } else {
